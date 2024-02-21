@@ -5,18 +5,19 @@ import { CharacterCardProps } from "./interfaces";
 const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   return (
     <div className="character-card">
-      <Image
-        src={
-          character.image
-            ? character.image
-            : "https://alanmatoso-lp-harrypotter.vercel.app/assets/profile-photo-error.png"
-        }
-        alt={character.name}
-        className="character-image"
-        width={800}
-        height={600}
-        priority
-      />
+      {character.image ? (
+        <Image
+          src={character.image ? character.image : ""}
+          alt={character.name}
+          className="character-image"
+          width={800}
+          height={600}
+          priority
+        />
+      ) : (
+        <div className="character-image" />
+      )}
+
       <div className="character-details">
         <h2 className="character-name">{character.name}</h2>
         {character.alternate_names.length > 0 && (
