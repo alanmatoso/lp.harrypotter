@@ -35,12 +35,14 @@
     .character-image {
       width: 100%;
       height: $size-325px;
+      background: url('../app/assets/profile-photo-error.png');
 
       @media screen and (min-width: 44rem) {
         display: flex;
         gap: $size-24px;
-        height: auto;
+        height: $size-800px;
         width: $size-580px;
+        background: url('../app/assets/profile-photo-error-desktop.png');
       }
 
       @media screen and (min-width: 64rem) {
