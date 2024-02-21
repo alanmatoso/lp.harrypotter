@@ -1,0 +1,24 @@
+.character-card {
+    width: 200px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background: rgba(0,0,0,0.9);
+    text-align: left;
+
+    .character-image {
+      width: 100%;
+      height: auto;
+    }
+    
+    .character-name {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    
+    .character-info {
+      margin-top: 5px;
+    }
+}
+  
