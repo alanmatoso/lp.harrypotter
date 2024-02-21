@@ -18,16 +18,33 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-image: url(../app/assets/hp-background.jpg) ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 44rem) {
+  body {
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  body {
+    height: 100vh;
+    min-height: 900px;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@font-face {
+  font-family: harryP;
+  src: url(../app/assets/harryp.ttf);
+  weight: 400
 }
