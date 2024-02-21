@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 interface Character {
   id: string;
@@ -62,90 +62,181 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="flex flex-col items-center justify-between">
       {characters.length > 0 && (
         <>
-          <button onClick={handlePrev} disabled={currentIndex === 0}>
-            Previous
-          </button>
-          <div className="character-card">
-            <img
-              src={characters[currentIndex].image}
-              alt={characters[currentIndex].name}
-              className="character-image"
-            />
-            <div className="character-details">
-              <h2 className="character-name">
-                {characters[currentIndex].name}
-              </h2>
-              <p className="character-info">
-                Alternate Names:{" "}
-                {characters[currentIndex].alternate_names.join(", ")}
-              </p>
-              <p className="character-info">
-                Species: {characters[currentIndex].species}
-              </p>
-              <p className="character-info">
-                Gender: {characters[currentIndex].gender}
-              </p>
-              <p className="character-info">
-                House: {characters[currentIndex].house}
-              </p>
-              <p className="character-info">
-                Date of Birth: {characters[currentIndex].dateOfBirth}
-              </p>
-              <p className="character-info">
-                Year of Birth: {characters[currentIndex].yearOfBirth}
-              </p>
-              <p className="character-info">
-                Wizard: {characters[currentIndex].wizard ? "Yes" : "No"}
-              </p>
-              <p className="character-info">
-                Ancestry: {characters[currentIndex].ancestry}
-              </p>
-              <p className="character-info">
-                Eye Colour: {characters[currentIndex].eyeColour}
-              </p>
-              <p className="character-info">
-                Hair Colour: {characters[currentIndex].hairColour}
-              </p>
-              <p className="character-info">
-                Wand: Wood - {characters[currentIndex].wand.wood}, Core -{" "}
-                {characters[currentIndex].wand.core}, Length -{" "}
-                {characters[currentIndex].wand.length}"
-              </p>
-              <p className="character-info">
-                Patronus: {characters[currentIndex].patronus}
-              </p>
-              <p className="character-info">
-                Hogwarts Student:{" "}
-                {characters[currentIndex].hogwartsStudent ? "Yes" : "No"}
-              </p>
-              <p className="character-info">
-                Hogwarts Staff:{" "}
-                {characters[currentIndex].hogwartsStaff ? "Yes" : "No"}
-              </p>
-              <p className="character-info">
-                Actor: {characters[currentIndex].actor}
-              </p>
-              {characters[currentIndex].alternate_actors.length > 0 && (
-                <p className="character-info">
-                  Alternate Actors:{" "}
-                  {characters[currentIndex].alternate_actors.join(", ")}
-                </p>
-              )}
-              <p className="character-info">
-                Alive: {characters[currentIndex].alive ? "Yes" : "No"}
-              </p>
-            </div>
-            <div className="navigation"></div>
+          <div className="page-tittle">HarryVerse</div>
+          <div className="page-subtittle">
+            Dive Deep into Harry Potter's Characters
           </div>
-          <button
-            onClick={handleNext}
-            disabled={currentIndex === characters.length - 1}
-          >
-            Next
-          </button>
+
+          <div className="cards-container">
+            <button
+              onClick={handlePrev}
+              disabled={currentIndex === 0}
+              className="nav-previus-button"
+            />
+            <div className="character-card">
+              <Image
+                src={
+                  characters[currentIndex].image
+                    ? characters[currentIndex].image
+                    : "https://alanmatoso-lp-harrypotter.vercel.app/assets/profile-photo-error.png"
+                }
+                alt={characters[currentIndex].name}
+                className="character-image"
+                width={800}
+                height={600}
+                priority
+              />
+              <div className="character-details">
+                <h2 className="character-name">
+                  {characters[currentIndex].name}
+                </h2>
+                {characters[currentIndex].alternate_names.length > 0 && (
+                  <p className="character-attribute">
+                    Alternate Names:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].alternate_names.join(", ")}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].species && (
+                  <p className="character-attribute">
+                    Species:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].species}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].gender && (
+                  <p className="character-attribute">
+                    Gender:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].gender}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].house && (
+                  <p className="character-attribute">
+                    House:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].house}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].dateOfBirth && (
+                  <p className="character-attribute">
+                    Date of Birth:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].dateOfBirth}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].yearOfBirth && (
+                  <p className="character-attribute">
+                    Year of Birth:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].yearOfBirth}
+                    </span>
+                  </p>
+                )}
+                <p className="character-attribute">
+                  Wizard:{" "}
+                  <span className="character-info">
+                    {characters[currentIndex].wizard ? "Yes" : "No"}
+                  </span>
+                </p>
+                {characters[currentIndex].ancestry && (
+                  <p className="character-attribute">
+                    Ancestry:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].ancestry}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].eyeColour && (
+                  <p className="character-attribute">
+                    Eye Colour:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].eyeColour}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].hairColour && (
+                  <p className="character-attribute">
+                    Hair Colour:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].hairColour}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].wand && (
+                  <p className="character-attribute">
+                    Wand: Wood -{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].wand.wood}
+                    </span>
+                    , Core -{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].wand.core}
+                    </span>
+                    , Length -{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].wand.length}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].patronus && (
+                  <p className="character-attribute">
+                    Patronus:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].patronus}
+                    </span>
+                  </p>
+                )}
+                <p className="character-attribute">
+                  Hogwarts Student:{" "}
+                  <span className="character-info">
+                    {characters[currentIndex].hogwartsStudent ? "Yes" : "No"}
+                  </span>
+                </p>
+                <p className="character-attribute">
+                  Hogwarts Staff:{" "}
+                  <span className="character-info">
+                    {characters[currentIndex].hogwartsStaff ? "Yes" : "No"}
+                  </span>
+                </p>
+                {characters[currentIndex].actor && (
+                  <p className="character-attribute">
+                    Actor:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].actor}
+                    </span>
+                  </p>
+                )}
+                {characters[currentIndex].alternate_actors.length > 0 && (
+                  <p className="character-attribute">
+                    Alternate Actors:{" "}
+                    <span className="character-info">
+                      {characters[currentIndex].alternate_actors.join(", ")}
+                    </span>
+                  </p>
+                )}
+                <p className="character-attribute">
+                  Alive:{" "}
+                  <span className="character-info">
+                    {characters[currentIndex].alive ? "Yes" : "No"}
+                  </span>
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={handleNext}
+              disabled={currentIndex === characters.length - 1}
+              className="nav-next-button"
+            />
+          </div>
         </>
       )}
     </div>
