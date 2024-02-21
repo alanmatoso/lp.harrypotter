@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2024-02-21
+
+### Fixed
+
+- Resolve problem when character doesn't have a picture.
+
+## [0.1.0] - 2024-02-21
+
 ### Added
 
 - Created the first version about Harry Potter Landing Page
